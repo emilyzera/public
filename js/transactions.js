@@ -1,6 +1,6 @@
 const myModal = new bootstrap.Modal("#transaction-modal");
 const session = localStorage.getItem("session");
-let logged = sessionStorage.getItem("logged");
+let logged = sessionStorage.getItem("logged")
 
 let data = {
   transactions: [],
@@ -50,6 +50,7 @@ function checkLogged() {
   if (dataUser) {
     data = JSON.parse(dataUser);
   }
+  getTransactions();
 
 }
 
@@ -59,7 +60,7 @@ function logout() {
     window.location.href = "index.html";
   }
 
-  getTransactions();
+  
 
   function getTransactions() {
     const transactions = data.transactions
@@ -76,7 +77,7 @@ function logout() {
         transactionsHtml += `
                     <tr>
                       <th scope="row">${item.date}</th>
-                      <td>${item.value}</td>
+                      <td>${item.value.toFixed(2)}</td>
                       <td>${type}</td>
                       <td>${item.description}</td>
                     </tr>

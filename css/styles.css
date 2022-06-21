@@ -31,6 +31,7 @@ color: #4e0070;
     color: #ffffff;
     font-size: 18px;
     font-weight: 500;
+    margin: 80px;
 }
 
 .coins{
@@ -42,7 +43,7 @@ color: #4e0070;
     background-color: #4e0070;
     color: #ffffff;
     width: 50%;
-    margin: 0,25%;
+    margin: 0 25%
 }
 
 .button-default{

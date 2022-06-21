@@ -1,43 +1,38 @@
-
-
 const myModal = new bootstrap.Modal("#transaction-modal");
 let logged = sessionStorage.getItem("logged");
 const session = localStorage.getItem("session");
 
 let data = {
-  transactions: [],
+  transactions: []
 };
+
+
 
 document.getElementById("button-logout").addEventListener("click", logout);
 document.getElementById("transactions-button").addEventListener("click", function() {
   window.location.href = "transactions.html"
 })
 
-document
-  .getElementById("transaction-form")
-  .addEventListener("submit", function (e) {
+//ADICIONAR LANÇAMENTO
+
+document.getElementById("transaction-form").addEventListener("submit", function (e) {
     e.preventDefault();
 
     const value = parseFloat(document.getElementById("value-input").value);
     const description = document.getElementById("description-input").value;
     const date = document.getElementById("date-input").value;
-    const type = document.querySelector(
-      'input[name="type-input"]:checked'
-    ).value;
+    const type = document.querySelector('input[name="type-input"]:checked').value;
 
     data.transactions.unshift({
-      value: value,
-      type: type,
-      description: description,
-      date: date,
+      value: value,type: type,description: description,date: date
     });
 
     saveDate(data);
     e.target.reset();
     myModal.hide();
   
-  getCashOut();
   getCashIn();
+  getCashOut();
   getTotal();
 
     alert("Lançamento adicionado com sucesso!");
@@ -119,7 +114,7 @@ function getCashOut() {
 
   if (cashIn.length) {
     let cashInHtml = "";
-    let limit = 0;
+    let limit = 0
 
     if (cashIn.length > 5) {
       limit = 5;
